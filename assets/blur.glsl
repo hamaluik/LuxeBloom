@@ -1,3 +1,5 @@
+// adapted from https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson5
+
 uniform sampler2D tex0;
 varying vec2 tcoord;
 varying vec4 color;
