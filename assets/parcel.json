@@ -1,0 +1,9 @@
+{
+    "textures" : [
+        { "id" : "assets/edmonton.png" }
+    ],
+    "shaders" : [
+        { "ps_id":"assets/isolate_bright.glsl" },
+        { "ps_id":"assets/blur.glsl" }
+    ]
+}
