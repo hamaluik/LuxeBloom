@@ -10,6 +10,7 @@ class Main extends luxe.Game {
 	// normal sprites
 	var cityScape:Sprite;
 
+	var glitchEffect:GlitchEffect = new GlitchEffect();
 	var bloomEffect:BloomEffect = new BloomEffect();
 
 	override function ready() {
@@ -34,12 +35,15 @@ class Main extends luxe.Game {
 		// load things normally
 		Luxe.renderer.clear_color = new Color(1, 0, 0, 1);
 
+		glitchEffect.onload();
+
 		var cityScapeTexture:Texture = Luxe.resources.find_texture('assets/edmonton.png');
 		cityScape = new Sprite({
 			texture: cityScapeTexture,
 			pos: Luxe.screen.mid,
 			size: new Vector(cityScapeTexture.width_actual, cityScapeTexture.height_actual),
-			depth: 0
+			depth: 0,
+			shader: glitchEffect.scanlineShader
 		});
 
 		bloomEffect.onload();
@@ -58,6 +62,10 @@ class Main extends luxe.Game {
 
 		// set the bloom threshold to the mouse's y-axis
 		bloomEffect.threshold = event.pos.y / Luxe.screen.h;
+	}
+
+	override function update(dt:Float) {
+		glitchEffect.update(dt);
 	}
 
 	override function onprerender() {

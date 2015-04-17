@@ -4,6 +4,7 @@
     ],
     "shaders" : [
         { "ps_id":"assets/isolate_bright.glsl" },
-        { "ps_id":"assets/blur.glsl" }
+        { "ps_id":"assets/blur.glsl" },
+        { "ps_id":"assets/scanlines.glsl" }
     ]
 }
